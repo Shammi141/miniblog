@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-size:20px; line-height:50px; padding: 0 70px; font-family: 'Pacifico', cursive;">Mimi Blog</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/" style="background-color:rgb(100, 19, 40); color: white;"><b>Home</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'blogpage' %}"  style="background-color:rgb(100, 19, 40); color: white;"><b>Blog Page</b></a>
+        </li>
+
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'dashboard' %}" style=" background-color:rgb(100, 19, 40); color: white;"><b>Dashboard</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" style="background-color:rgb(100, 19, 40); color: white;"><b>Logout</b></a>
+        </li>
+
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}" style="background-color:rgb(100, 19, 40); color: white;"><b>Signup</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}" style="background-color:rgb(100, 19, 40); color: white;"><b>Login</b></a>
+        </li>
+        {% endif %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'feedback' %}" style="background-color:rgb(100, 19, 40); color: white;"><b>Feedback</b></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
